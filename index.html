@@ -9,6 +9,9 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
 
+    <!-- Font Awesome图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <!-- 引入Bulma CSS框架 - 用于页面样式和布局 -->
     <link rel="stylesheet" href="css/bulma.min.css">
     <!-- 引入Plyr视频播放器样式 -->
@@ -54,8 +57,19 @@
     <!-- 主要内容区域 -->
     <section class="section">
         <div class="container">
-            <!-- 页面标题 -->
-            <h1 class="title">HamExam-业余无线电台操作能力考核A类题库</h1>
+            <!-- 标题和按钮容器 -->
+            <div class="is-flex is-justify-content-space-between is-align-items-center mb-5">
+                <h1 class="title m-0">HamExam-业余无线电台操作能力考核A类题库</h1>
+                <div class="buttons">
+                    <a href="https://github.com/du-yuxuan/HamExam" class="button is-link is-light is-normal" target="_blank">
+                        <span class="icon"><i class="fab fa-github"></i></span>
+                        <span>Github</span>
+                    </a>
+                    <a href="https://ham-exam.110527.xyz" class="button is-info is-light is-normal" target="_blank">
+                        <span class="icon"><i class="fas fa-globe"></i></span>
+                    </a>
+                </div>
+            </div>
 
             <!-- 日期导航标签 - 使用Bulma的tabs组件 -->
             <div class="tabs is-centered is-boxed is-fullwidth">
