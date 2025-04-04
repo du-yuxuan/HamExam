@@ -9,13 +9,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const li = document.createElement('li');
         const a = document.createElement('a');
         a.textContent = day;
-        a.href = `#${day.toLowerCase()}`;
         li.appendChild(a);
         tabsContainer.appendChild(li);
 
         a.addEventListener('click', (e) => {
             player.destroy();
             e.preventDefault();
+
+            // 移除所有标签的active class
+            document.querySelectorAll('#day-tabs li').forEach(tab => {
+                tab.classList.remove('is-active');
+            });
+            // 为当前点击的标签添加active class
+            li.classList.add('is-active');
+
             loadDayQuestions(day);
         });
     });
@@ -49,6 +56,7 @@ function toggleAllQuestions(showAll) {
 }
 
 function loadDayQuestions(day) {
+
     const questionsContainer = document.getElementById('questions-container');
     const title = document.getElementById('title');
     const playerElement = document.getElementById('player')
@@ -102,12 +110,12 @@ function loadDayQuestions(day) {
         card.appendChild(optionsList);
 
         const answerBtn = document.createElement('button');
-        answerBtn.className = 'button is-info is-small';
+        answerBtn.className = 'button is-info';
         answerBtn.textContent = '显示答案';
         card.appendChild(answerBtn);
 
         const answerDiv = document.createElement('div');
-        answerDiv.className = 'notification is-light is-hidden';
+        answerDiv.className = 'notification is-hidden';
         answerDiv.innerHTML = `<strong>正确答案: ${q.answer}</strong><br>${q.explanation}`;
         card.appendChild(answerDiv);
 
@@ -132,7 +140,7 @@ function loadDayQuestions(day) {
     navDiv.className = 'buttons is-centered';
 
     const prevBtn = document.createElement('button');
-    prevBtn.className = 'button is-primary nav-button';
+    prevBtn.className = 'button is-primary is-light nav-button';
     prevBtn.textContent = '上一题';
     prevBtn.addEventListener('click', () => {
         if(currentQuestionIndex > 0) {
@@ -143,7 +151,7 @@ function loadDayQuestions(day) {
     });
 
     const nextBtn = document.createElement('button');
-    nextBtn.className = 'button is-primary nav-button';
+    nextBtn.className = 'button is-primary is-light nav-button';
     nextBtn.textContent = '下一题';
     nextBtn.addEventListener('click', () => {
         if(currentQuestionIndex < questions.length - 1) {
@@ -157,7 +165,7 @@ function loadDayQuestions(day) {
     navDiv.appendChild(nextBtn);
 
     const toggleAllBtn = document.createElement('button');
-    toggleAllBtn.className = 'button is-primary';
+    toggleAllBtn.className = 'button is-dark is-primary';
     toggleAllBtn.textContent = '显示所有题目';
     let showAll = false;
     toggleAllBtn.addEventListener('click', () => {
