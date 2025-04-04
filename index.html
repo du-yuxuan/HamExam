@@ -3,65 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 页面标题 - 业余无线电台操作能力考核A类题库 -->
     <title>HamExam-业余无线电台操作能力考核A类题库</title>
+    <!-- 引入Bulma CSS框架 - 用于页面样式和布局 -->
     <link rel="stylesheet" href="css/bulma.min.css">
+    <!-- 引入Plyr视频播放器样式 -->
     <link rel="stylesheet" href="css/plyr.css" />
+    <!-- 引入Plyr视频播放器脚本 -->
     <script src="js/plyr.polyfilled.js"></script>
+    <!-- 页面自定义样式 -->
     <style>
+        /* 视频容器样式 */
         .video-container {
             margin: 20px 0;
             width: 100%;
         }
+        /* 视频包装器样式 - 控制视频尺寸和响应式布局 */
         .video-wrapper {
             position: relative;
             width: 100%;
             max-width: 800px;
             max-height: 80vh;
-            aspect-ratio: 16/9;
+            aspect-ratio: 16/9; /* 保持16:9的视频比例 */
             margin: 0;
         }
 
+        /* 移动设备响应式样式 */
         @media (max-width: 768px) {
             .video-wrapper {
                 max-width: 100%;
                 padding: 0 10px;
             }
         }
+        /* 视频元素样式 */
         .video-wrapper video {
             width: 100%;
             height: auto;
         }
+        /* 题目卡片样式 */
         .question-card {
             margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
+    <!-- 主要内容区域 -->
     <section class="section">
         <div class="container">
+            <!-- 页面标题 -->
             <h1 class="title">HamExam-业余无线电台操作能力考核A类题库</h1>
 
+            <!-- 日期导航标签 - 使用Bulma的tabs组件 -->
             <div class="tabs is-centered is-boxed is-fullwidth">
                 <ul id="day-tabs" class="is-flex is-flex-wrap-wrap">
-                    <!-- 动态生成21天导航 -->
+                    <!-- 动态生成日期导航标签 (Day1-Day19) -->
                 </ul>
             </div>
 
+            <!-- 视频播放区域 -->
             <div class="video-container">
                 <div class="box">
+                    <!-- 当前学习日标题 -->
                     <h2 id="title" class="subtitle"></h2>
+                    <!-- 视频播放器容器 -->
                     <div class="video-wrapper">
                         <video id="player" playsinline controls></video>
                     </div>
                 </div>
             </div>
 
+            <!-- 题目展示区域 - 由JavaScript动态加载内容 -->
             <div id="questions-container">
                 <!-- 题目动态加载位置 -->
             </div>
         </div>
     </section>
 
+    <!-- 引入应用程序脚本 -->
     <script src="app.js"></script>
 </body>
 </html>
