@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-9810741403116371">
     <!-- 页面标题 - 业余无线电台操作能力考核A类题库 -->
     <title>HamExam-业余无线电台操作能力考核A类题库</title>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
@@ -18,11 +19,13 @@
     <link rel="stylesheet" href="css/plyr.css" />
     <!-- 引入Plyr视频播放器脚本 -->
     <script src="js/plyr.polyfilled.js"></script>
-    <!-- 页面自定义样式 -->
+    <!-- 引入自定义样式 - 简洁大气的界面 -->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- 学习模式特定样式 -->
     <style>
         /* 视频容器样式 */
         .video-container {
-            margin: 20px 0;
+            margin: 2rem 0;
             width: 100%;
         }
         /* 视频包装器样式 - 控制视频尺寸和响应式布局 */
@@ -32,24 +35,16 @@
             max-width: 800px;
             max-height: 80vh;
             aspect-ratio: 16/9; /* 保持16:9的视频比例 */
-            margin: 0;
+            margin: 0 auto;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
         }
 
-        /* 移动设备响应式样式 */
-        @media (max-width: 768px) {
-            .video-wrapper {
-                max-width: 100%;
-                padding: 0 10px;
-            }
-        }
         /* 视频元素样式 */
         .video-wrapper video {
             width: 100%;
             height: auto;
-        }
-        /* 题目卡片样式 */
-        .question-card {
-            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -58,14 +53,14 @@
     <section class="section">
         <div class="container">
             <!-- 标题和按钮容器 -->
-            <div class="is-flex is-justify-content-space-between is-align-items-center mb-5">
+            <div class="is-flex is-justify-content-space-between is-align-items-center mb-6">
                 <h1 class="title m-0">HamExam-业余无线电台操作能力考核A类题库</h1>
                 <div class="buttons">
-                    <a href="https://github.com/du-yuxuan/HamExam" class="button is-link is-light is-normal" target="_blank">
+                    <a href="https://github.com/du-yuxuan/HamExam" class="button is-link is-light" target="_blank">
                         <span class="icon"><i class="fab fa-github"></i></span>
                         <span>Github</span>
                     </a>
-                    <a href="https://ham-exam.110527.xyz" class="button is-info is-light is-normal" target="_blank">
+                    <a href="https://ham-exam.110527.xyz" class="button is-info is-light" target="_blank">
                         <span class="icon"><i class="fas fa-globe"></i></span>
                     </a>
                 </div>

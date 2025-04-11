@@ -1,0 +1,40 @@
+<!-- 错题集模态框 -->
+<div id="wrong-questions-modal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card modal-large">
+        <header class="modal-card-head">
+            <p class="modal-card-title">错题集</p>
+            <button id="close-wrong-questions" class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div id="wrong-questions-filters" class="mb-4">
+                <div class="field is-grouped is-grouped-centered">
+                    <p class="control">
+                        <button id="show-all-wrong" class="button is-info is-small is-active">
+                            <span class="icon is-small"><i class="fas fa-list"></i></span>
+                            <span>全部错题</span>
+                        </button>
+                    </p>
+                    <p class="control">
+                        <button id="show-reviewed" class="button is-success is-small">
+                            <span class="icon is-small"><i class="fas fa-check"></i></span>
+                            <span>已复习</span>
+                        </button>
+                    </p>
+                    <p class="control">
+                        <button id="show-not-reviewed" class="button is-warning is-small">
+                            <span class="icon is-small"><i class="fas fa-exclamation"></i></span>
+                            <span>未复习</span>
+                        </button>
+                    </p>
+                </div>
+            </div>
+            <div id="wrong-questions-list">
+                <!-- 错题将通过JavaScript动态加载 -->
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button id="clear-wrong-questions" class="button is-danger">清空错题集</button>
+        </footer>
+    </div>
+</div>
