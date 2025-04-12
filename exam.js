@@ -54,10 +54,20 @@ document.addEventListener('DOMContentLoaded', () => {
         resultPageHistoryBtn.addEventListener('click', showExamHistory);
     }
 
-    // 为错题集按钮添加事件监听器
-    const wrongQuestionsBtn = document.getElementById('show-wrong-questions');
-    if (wrongQuestionsBtn) {
-        wrongQuestionsBtn.addEventListener('click', showWrongQuestions);
+    // 为错题集按钮添加事件监听器（主页和结果页面）
+    const wrongQuestionsButtons = document.querySelectorAll('#show-wrong-questions');
+    wrongQuestionsButtons.forEach(btn => {
+        if (btn) {
+            btn.addEventListener('click', showWrongQuestions);
+        }
+    });
+
+    // 为关闭错题集按钮添加事件监听器
+    const closeWrongQuestionsBtn = document.getElementById('close-wrong-questions');
+    if (closeWrongQuestionsBtn) {
+        closeWrongQuestionsBtn.addEventListener('click', () => {
+            document.getElementById('wrong-questions-modal').classList.remove('is-active');
+        });
     }
 
     // 为历史记录按钮添加事件监听器（兼容性处理）
@@ -572,28 +582,9 @@ function exitExam() {
         examFinished = false;
 
         // 恢复介绍区域的原始内容
-        document.getElementById('exam-intro').innerHTML = `
-            <h2 class="subtitle">模拟考试说明</h2>
-            <div class="content">
-                <p>本模拟考试从题库中随机抽取30道题目，考试时间为40分钟。</p>
-                <p>考试过程中，您可以通过右侧答题卡快速导航到不同题目。</p>
-                <p>完成所有题目后，点击"提交试卷"按钮查看考试结果。</p>
-            </div>
-            <div class="field is-grouped">
-                <p class="control">
-                    <button id="start-exam" class="button is-primary is-medium">
-                        <span class="icon"><i class="fas fa-play"></i></span>
-                        <span>开始考试</span>
-                    </button>
-                </p>
-                <p class="control">
-                    <button id="show-history" class="button is-info is-medium">
-                        <span class="icon"><i class="fas fa-history"></i></span>
-                        <span>查看历史</span>
-                    </button>
-                </p>
-            </div>
-        `;
+
+        // 重新加载页面以确保所有状态正确重置
+        location.reload();
 
         // 为重新生成的按钮添加事件监听器
         document.getElementById('start-exam').addEventListener('click', startExam);
@@ -655,38 +646,9 @@ function restartExam() {
     // 隐藏结果区域，显示介绍区域
     document.getElementById('result-container').classList.add('is-hidden');
     document.getElementById('exam-intro').classList.remove('is-hidden');
-    document.getElementById('exam-intro').innerHTML = `
-        <h2 class="subtitle">模拟考试说明</h2>
-        <div class="content">
-            <p>本模拟考试从题库中随机抽取30道题目，考试时间为40分钟。</p>
-            <p>考试过程中，您可以通过右侧答题卡快速导航到不同题目。</p>
-            <p>完成所有题目后，点击"提交试卷"按钮查看考试结果。</p>
-        </div>
-        <div class="field is-grouped">
-            <p class="control">
-                <button id="start-exam" class="button is-primary is-medium">
-                    <span class="icon"><i class="fas fa-play"></i></span>
-                    <span>开始考试</span>
-                </button>
-            </p>
-            <p class="control">
-                <button id="show-history" class="button is-info is-medium">
-                    <span class="icon"><i class="fas fa-history"></i></span>
-                    <span>查看历史</span>
-                </button>
-            </p>
-            <p class="control">
-                <button id="show-wrong-questions" class="button is-danger is-medium">
-                    <span class="icon"><i class="fas fa-exclamation-triangle"></i></span>
-                    <span>错题集</span>
-                </button>
-            </p>
-        </div>
-    `;
 
-    // 重新添加按钮事件
-    document.getElementById('start-exam').addEventListener('click', startExam);
-    document.getElementById('show-history').addEventListener('click', showExamHistory);
+    // 重新加载页面以确保所有状态正确重置
+    location.reload();
 
     // 确保结果页面的历史按钮也有事件监听器
     const resultPageHistoryBtn = document.querySelector('#result-container #show-history');
@@ -694,9 +656,11 @@ function restartExam() {
         resultPageHistoryBtn.addEventListener('click', showExamHistory);
     }
 
-    // 确保错题集按钮也有事件监听器
-    const wrongQuestionsBtn = document.getElementById('show-wrong-questions');
-    if (wrongQuestionsBtn) {
-        wrongQuestionsBtn.addEventListener('click', showWrongQuestions);
-    }
+    // 确保所有错题集按钮都有事件监听器
+    const wrongQuestionsButtons = document.querySelectorAll('#show-wrong-questions');
+    wrongQuestionsButtons.forEach(btn => {
+        if (btn) {
+            btn.addEventListener('click', showWrongQuestions);
+        }
+    });
 }

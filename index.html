@@ -15,84 +15,192 @@
 
     <!-- 引入Bulma CSS框架 - 用于页面样式和布局 -->
     <link rel="stylesheet" href="css/bulma.min.css">
-    <!-- 引入Plyr视频播放器样式 -->
-    <link rel="stylesheet" href="css/plyr.css" />
-    <!-- 引入Plyr视频播放器脚本 -->
-    <script src="js/plyr.polyfilled.js"></script>
     <!-- 引入自定义样式 - 简洁大气的界面 -->
     <link rel="stylesheet" href="css/custom.css">
-    <!-- 学习模式特定样式 -->
+    <!-- 主页特定样式 -->
     <style>
-        /* 视频容器样式 */
-        .video-container {
-            margin: 2rem 0;
-            width: 100%;
-        }
-        /* 视频包装器样式 - 控制视频尺寸和响应式布局 */
-        .video-wrapper {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            max-height: 80vh;
-            aspect-ratio: 16/9; /* 保持16:9的视频比例 */
-            margin: 0 auto;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
+        /* 英雄区域样式 */
+        .hero {
+            background: linear-gradient(135deg, #3273dc 0%, #485fc7 100%);
+            color: white;
         }
 
-        /* 视频元素样式 */
-        .video-wrapper video {
-            width: 100%;
-            height: auto;
+        .hero-body {
+            padding: 4rem 1.5rem;
+        }
+
+        /* 特性卡片样式 */
+        .feature-card {
+            height: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        /* 按钮样式 */
+        .cta-button {
+            margin-top: 1rem;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+        }
+
+        /* 页脚样式 */
+        .footer {
+            background-color: #fafafa;
+            padding: 3rem 1.5rem;
         }
     </style>
 </head>
 <body>
-    <!-- 主要内容区域 -->
-    <section class="section">
-        <div class="container">
-            <!-- 标题和按钮容器 -->
-            <div class="is-flex is-justify-content-space-between is-align-items-center mb-6">
-                <h1 class="title m-0">HamExam-业余无线电台操作能力考核A类题库</h1>
-                <div class="buttons">
-                    <a href="https://github.com/du-yuxuan/HamExam" class="button is-link is-light" target="_blank">
-                        <span class="icon"><i class="fab fa-github"></i></span>
-                        <span>Github</span>
-                    </a>
-                    <a href="https://ham-exam.110527.xyz" class="button is-info is-light" target="_blank">
-                        <span class="icon"><i class="fas fa-globe"></i></span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- 日期导航标签 - 使用Bulma的tabs组件 -->
-            <div class="tabs is-centered is-boxed is-fullwidth">
-                <ul id="day-tabs" class="is-flex is-flex-wrap-wrap">
-                    <!-- 动态生成日期导航标签 (Day1-Day19) -->
-                </ul>
-            </div>
-
-            <!-- 视频播放区域 -->
-            <div class="video-container">
-                <div class="box">
-                    <!-- 当前学习日标题 -->
-                    <h2 id="title" class="subtitle"></h2>
-                    <!-- 视频播放器容器 -->
-                    <div class="video-wrapper">
-                        <video id="player" playsinline controls></video>
+    <!-- 英雄区域 - 主要标题和简介 -->
+    <section class="hero is-medium">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-vcentered">
+                    <div class="column is-6">
+                        <h1 class="title is-2 has-text-white">HamExam</h1>
+                        <h2 class="subtitle is-4 has-text-white">业余无线电台操作能力考核A类题库学习平台</h2>
+                        <p class="is-size-5 mb-5">专注于业余无线电台操作能力考核A类题库的学习平台，提供题库讲解视频和题目练习功能。</p>
+                        <div class="buttons">
+                            <a href="study.html" class="button is-primary is-medium cta-button">
+                                <span class="icon"><i class="fas fa-book"></i></span>
+                                <span>开始学习</span>
+                            </a>
+                            <a href="exam.html" class="button is-light is-medium cta-button">
+                                <span class="icon"><i class="fas fa-tasks"></i></span>
+                                <span>模拟考试</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <img src="https://socialify.git.ci/du-yuxuan/HamExam/image?custom_description=+%E4%B8%9A%E4%BD%99%E6%97%A0%E7%BA%BF%E7%94%B5%E5%8F%B0%E6%93%8D%E4%BD%9C%E8%83%BD%E5%8A%9B%E8%80%83%E6%A0%B8%E9%A2%98%E5%BA%93%E5%AD%A6%E4%B9%A0%E5%B9%B3%E5%8F%B0+&description=1&font=Inter&forks=1&issues=1&language=1&name=1&owner=1&pattern=Charlie+Brown&pulls=1&stargazers=1&tab=readme-ov-file%3Flanguage%3D1&theme=Light" alt="HamExam" class="image is-fullwidth" style="border-radius: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);">
                     </div>
                 </div>
-            </div>
-
-            <!-- 题目展示区域 - 由JavaScript动态加载内容 -->
-            <div id="questions-container">
-                <!-- 题目动态加载位置 -->
             </div>
         </div>
     </section>
 
-    <!-- 引入应用程序脚本 -->
-    <script src="app.js?v=2.0.0"></script>
+    <!-- 特性介绍区域 -->
+    <section class="section">
+        <div class="container">
+            <h2 class="title has-text-centered mb-6">功能特点</h2>
+            <div class="columns is-multiline">
+                <!-- 特性1：每日学习计划 -->
+                <div class="column is-4">
+                    <div class="box feature-card">
+                        <div class="has-text-centered">
+                            <span class="icon feature-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </span>
+                        </div>
+                        <h3 class="title is-4 has-text-centered">每日学习计划</h3>
+                        <p class="has-text-centered">精心设计的19天学习计划，循序渐进地掌握业余无线电知识。</p>
+                    </div>
+                </div>
+                <!-- 特性2：视频讲解 -->
+                <div class="column is-4">
+                    <div class="box feature-card">
+                        <div class="has-text-centered">
+                            <span class="icon feature-icon">
+                                <i class="fas fa-video"></i>
+                            </span>
+                        </div>
+                        <h3 class="title is-4 has-text-centered">题库讲解视频</h3>
+                        <p class="has-text-centered">专业的视频讲解，帮助您理解每个知识点和题目。</p>
+                    </div>
+                </div>
+                <!-- 特性3：题目练习 -->
+                <div class="column is-4">
+                    <div class="box feature-card">
+                        <div class="has-text-centered">
+                            <span class="icon feature-icon">
+                                <i class="fas fa-tasks"></i>
+                            </span>
+                        </div>
+                        <h3 class="title is-4 has-text-centered">题目练习与解析</h3>
+                        <p class="has-text-centered">配套练习题和详细解析，巩固所学知识，提高应试能力。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 使用指南区域 -->
+    <section class="section has-background-light">
+        <div class="container">
+            <h2 class="title has-text-centered mb-6">使用方式</h2>
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="box">
+                        <div class="content">
+                            <ol class="is-size-5">
+                                <li>
+                                    <strong>学习模式：</strong>按照Day1-Day19的顺序学习，观看视频讲解并完成配套练习题。
+                                    <div class="has-text-centered mt-2">
+                                        <a href="study.html" class="button is-primary">
+                                            <span class="icon"><i class="fas fa-book"></i></span>
+                                            <span>进入学习模式</span>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="mt-4">
+                                    <strong>考试模式：</strong>模拟真实考试环境，从题库中随机抽取30道题目，限时40分钟完成。
+                                    <div class="has-text-centered mt-2">
+                                        <a href="exam.html" class="button is-info">
+                                            <span class="icon"><i class="fas fa-tasks"></i></span>
+                                            <span>进入考试模式</span>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 开源信息区域 -->
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-8 has-text-centered">
+                    <h2 class="title">开源项目</h2>
+                    <p class="is-size-5 mb-4">HamExam是一个开源项目，欢迎贡献和改进。</p>
+                    <a href="https://github.com/du-yuxuan/HamExam" class="button is-link is-medium" target="_blank">
+                        <span class="icon"><i class="fab fa-github"></i></span>
+                        <span>GitHub 仓库</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚区域 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <p>
+                    <strong>HamExam</strong> - 业余无线电台操作能力考核A类题库学习平台
+                </p>
+                <p>
+                    <a href="https://github.com/du-yuxuan/HamExam" target="_blank">
+                        <span class="icon">
+                            <i class="fab fa-github"></i>
+                        </span>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

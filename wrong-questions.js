@@ -181,11 +181,22 @@ function renderWrongQuestions(mode) {
         const checkbox = reviewCheckbox.querySelector('input');
         checkbox.addEventListener('change', function() {
             markQuestionReviewed(question.id, question.lk_number, this.checked);
+            // 添加或移除reviewed类，配合CSS样式
+            if (this.checked) {
+                reviewCheckbox.classList.add('reviewed');
+            } else {
+                reviewCheckbox.classList.remove('reviewed');
+            }
             // 如果当前模式是筛选的，可能需要在切换后重新渲染
             if (mode !== 'all') {
                 setTimeout(() => renderWrongQuestions(mode), 100);
             }
         });
+
+        // 初始化时设置reviewed类
+        if (question.reviewed) {
+            reviewCheckbox.classList.add('reviewed');
+        }
 
         statusContainer.appendChild(reviewCheckbox);
         card.appendChild(statusContainer);

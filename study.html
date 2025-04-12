@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-9810741403116371">
+    <!-- 页面标题 - 业余无线电台操作能力考核A类题库 -->
+    <title>HamExam-业余无线电台操作能力考核A类题库-学习模式</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <!-- Font Awesome图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- 引入Bulma CSS框架 - 用于页面样式和布局 -->
+    <link rel="stylesheet" href="css/bulma.min.css">
+    <!-- 引入Plyr视频播放器样式 -->
+    <link rel="stylesheet" href="css/plyr.css" />
+    <!-- 引入Plyr视频播放器脚本 -->
+    <script src="js/plyr.polyfilled.js"></script>
+    <!-- 引入自定义样式 - 简洁大气的界面 -->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- 学习模式特定样式 -->
+    <style>
+        /* 视频容器样式 */
+        .video-container {
+            margin: 2rem 0;
+            width: 100%;
+        }
+        /* 视频包装器样式 - 控制视频尺寸和响应式布局 */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            max-height: 80vh;
+            aspect-ratio: 16/9; /* 保持16:9的视频比例 */
+            margin: 0 auto;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        /* 视频元素样式 */
+        .video-wrapper video {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- 主要内容区域 -->
+    <section class="section">
+        <div class="container">
+            <!-- 标题和按钮容器 -->
+            <div class="is-flex is-justify-content-space-between is-align-items-center mb-6">
+                <h1 class="title m-0">HamExam-业余无线电台操作能力考核A类题库</h1>
+                <div class="buttons">
+                    <a href="index.html" class="button is-primary is-light">
+                        <span class="icon"><i class="fas fa-home"></i></span>
+                        <span>返回首页</span>
+                    </a>
+                    <a href="exam.html" class="button is-info is-light">
+                        <span class="icon"><i class="fas fa-book"></i></span>
+                        <span>考试模式</span>
+                    </a>
+                    <a href="https://github.com/du-yuxuan/HamExam" class="button is-link is-light" target="_blank">
+                        <span class="icon"><i class="fab fa-github"></i></span>
+                        <span>Github</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 日期导航标签 - 使用Bulma的tabs组件 -->
+            <div class="tabs is-centered is-boxed is-fullwidth">
+                <ul id="day-tabs" class="is-flex is-flex-wrap-wrap">
+                    <!-- 动态生成日期导航标签 (Day1-Day19) -->
+                </ul>
+            </div>
+
+            <!-- 视频播放区域 -->
+            <div class="video-container">
+                <div class="box">
+                    <!-- 当前学习日标题 -->
+                    <h2 id="title" class="subtitle"></h2>
+                    <!-- 视频播放器容器 -->
+                    <div class="video-wrapper">
+                        <video id="player" playsinline controls></video>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 题目展示区域 - 由JavaScript动态加载内容 -->
+            <div id="questions-container">
+                <!-- 题目动态加载位置 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 引入应用程序脚本 -->
+    <script src="app.js?v=2.0.0"></script>
+</body>
+</html>

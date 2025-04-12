@@ -25,7 +25,7 @@
             <div class="is-flex is-justify-content-space-between is-align-items-center mb-6">
                 <h1 class="title m-0">HamExam-业余无线电台操作能力考核A类模拟考试</h1>
                 <div class="buttons">
-                    <a href="index.html" class="button is-info is-light">
+                    <a href="study.html" class="button is-info is-light">
                         <span class="icon"><i class="fas fa-book"></i></span>
                         <span>学习模式</span>
                     </a>
@@ -107,21 +107,7 @@
                             </p>
                         </div>
 
-                        <!-- 提交按钮 -->
-                        <div class="field is-grouped is-grouped-centered">
-                            <p class="control">
-                                <button id="submit-exam" class="button is-primary">
-                                    <span class="icon"><i class="fas fa-paper-plane"></i></span>
-                                    <span>提交试卷</span>
-                                </button>
-                            </p>
-                            <p class="control">
-                                <button id="exit-exam" class="button is-danger">
-                                    <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
-                                    <span>退出考试</span>
-                                </button>
-                            </p>
-                        </div>
+                        <!-- 提交按钮已移至答题卡下方 -->
                     </div>
 
                     <!-- 答题卡区域 -->
@@ -130,6 +116,22 @@
                             <h3 class="subtitle has-text-centered">答题卡</h3>
                             <div id="answer-sheet-buttons" class="is-flex is-flex-wrap-wrap is-justify-content-center">
                                 <!-- 答题卡按钮将通过JavaScript动态生成 -->
+                            </div>
+
+                            <!-- 退出考试和提交试卷按钮 -->
+                            <div class="field is-grouped is-grouped-centered mt-4">
+                                <p class="control">
+                                    <button id="exit-exam" class="button is-danger">
+                                        <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                                        <span>退出考试</span>
+                                    </button>
+                                </p>
+                                <p class="control">
+                                    <button id="submit-exam" class="button is-primary">
+                                        <span class="icon"><i class="fas fa-paper-plane"></i></span>
+                                        <span>提交试卷</span>
+                                    </button>
+                                </p>
                             </div>
                         </div>
                     </div>
