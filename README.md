@@ -65,5 +65,4 @@ HamExam是一个专注于业余无线电台操作能力考核A类题库的学习
 
 如有问题或建议，请联系：
 
-- 邮箱: your-email@example.com
 - GitHub Issues: [https://github.com/du-yuxuan/HamExam/issues](https://github.com/du-yuxuan/HamExam/issues)
